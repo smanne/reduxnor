@@ -28,7 +28,7 @@ class Root extends Component {
           <link rel="stylesheet" href="/static/css/all.css"/>
         </head>
         <body>
-          <div className="container" id='root' dangerouslySetInnerHTML={{__html: this.props.content}} />
+          <div className="container-fluid" id='root' dangerouslySetInnerHTML={{__html: this.props.content}} style={{height:"100%"}} />
           {this.renderEnvironment()}
           {this.renderInitialState()}
           {head.script.toComponent()}
