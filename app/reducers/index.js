@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import worksheets from './worksheets';
+import map from './map';
 
 export default combineReducers({
-  worksheets
+  map
 });
