@@ -28,6 +28,7 @@
     "react": "^15.1.0",
     "react-bootstrap": "^0.29.4",
     "react-dom": "^15.1.0",
+    "react-fontawesome": "^1.1.0",
     "react-helmet": "^3.0.1",
     "react-pure-render": "^1.0.1",
     "react-redux": "^4.4.1",
@@ -38,10 +39,15 @@
   "devDependencies": {
     "babel-loader": "^6.2.4",
     "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-class-properties": "^6.9.1",
     "babel-plugin-transform-object-assign": "^6.5.0",
+    "css-loader": "^0.23.1",
     "del": "^2.2.0",
+    "file-loader": "^0.8.5",
     "react-transform-hmr": "^1.0.4",
-    "webpack": "^2.1.0-beta.5",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.1.0-beta.9",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"
   }

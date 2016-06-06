@@ -24,6 +24,8 @@ class Root extends Component {
           {head.meta.toComponent()}
           {head.link.toComponent()}
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
+          <script src="https://use.fontawesome.com/fb0ac275a1.js"></script>
+          <script type="text/javascript" src="https://maps.google.com/maps/api/js?libraries=places&sensor=false"></script>
           <link href='https://fonts.googleapis.com/css?family=Nunito:300,400' rel='stylesheet' type='text/css'/>
           <link rel="stylesheet" href="/static/css/all.css"/>
         </head>
