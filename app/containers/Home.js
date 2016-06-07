@@ -7,7 +7,9 @@ import { fitBounds } from 'google-map-react/utils';
 var FontAwesome = require('react-fontawesome');
 import { default as _ } from "lodash";
 import SearchBox from '../components/SearchBox';
+import AddDonor from '../components/AddDonor';
 import * as MapActions from '../actions/map';
+import * as DonorActions from '../actions/donor';
 
 
 export default class Home extends Component {
@@ -22,6 +24,10 @@ export default class Home extends Component {
 
   onChildMouseEnter(e) {
     console.log(e);
+  }
+
+  componentDidMount() {
+    this.props.dispatch(DonorActions.fetchDonors());
   }
 
   onPlacesChanged(newPlace) {
@@ -39,6 +45,15 @@ export default class Home extends Component {
   }
 
   render() {
+    const MARKER_SIZE = 20;
+    const markerStyle = {
+      color:'red',
+      position: 'absolute',
+      width: MARKER_SIZE,
+      height: MARKER_SIZE,
+      left: -MARKER_SIZE / 2,
+      top: -MARKER_SIZE / 2
+    }
     return (
       <div className="row">
         <div className="row">
@@ -63,22 +78,22 @@ export default class Home extends Component {
                 center={this.props.map.center}
                 defaultCenter={this.props.map.defaultCenter}>
                 {
-                  this.props.map.markers.map((marker, index) => {
+                  this.props.donor.donors?this.props.donor.donors.map((donor, index) => {
                   return <FontAwesome name="heartbeat"
-                    style={{color:'red'}}
+                    style={markerStyle}
                     size="2x"
                     key={'marker_'+index}
-                    onClick={this.placeSelected}
-                    lat={marker.geometry.location.lat()}
-                    lng={marker.geometry.location.lng()}
+                    lat={donor.loc.coordinates[0]}
+                    lng={donor.loc.coordinates[1]}
                   />
-              })}
+              }):undefined}
               </GoogleMap>
             </div>
           </div>
         </div>
         <div className="row">
-          <div className="col-md-12" >
+          <div className="col-md-12">
+            <AddDonor defaultCenter={this.props.map.center} style={{position:'fixed', top:"40px", right:"10px"}}/>
           </div>
         </div>
       </div>
@@ -88,7 +103,8 @@ export default class Home extends Component {
 
 function mapStateToProps(state) {
   return {
-    map: state.map
+    map: state.map,
+    donor: state.donor
   };
 }
 

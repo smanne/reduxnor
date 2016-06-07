@@ -28,6 +28,7 @@ class Root extends Component {
           <script type="text/javascript" src="https://maps.google.com/maps/api/js?libraries=places&sensor=false"></script>
           <link href='https://fonts.googleapis.com/css?family=Nunito:300,400' rel='stylesheet' type='text/css'/>
           <link rel="stylesheet" href="/static/css/all.css"/>
+          <link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css"/>
         </head>
         <body>
           <div className="container-fluid" id='root' dangerouslySetInnerHTML={{__html: this.props.content}} style={{height:"100%"}} />

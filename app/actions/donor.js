@@ -3,23 +3,23 @@ export const DONOR_FETCHING = 'DONOR_FETCHING';
 export const DONOR_FETCHED = 'DONOR_FETCHED';
 export const DONOR_FETCH_FAILED = 'DONOR_FETCH_FAILED';
 
-function fetchDonors() {
+export function fetchDonors() {
   return (dispatch) => {
-    dispatch({ type: DONOR_FETCHING, donorId: donorId });
+    //dispatch({ type: DONOR_FETCHING, donorId: donorId });
 
-    return fetch('https://tapi.tabtor.com/donor/'+donorId+'?format=json')
+    return fetch('http://localhost:3005/donors/')
       .then((response) => {
         return response.json();
       })
       .then(
-        (result) => dispatch({ type: DONOR_FETCHED, donorId: donorId, result: result.result }),
-        (error) => dispatch({ type: DONOR_FETCH_FAILED, donorId: donorId, error })
+        (result) => dispatch({ type: DONOR_FETCHED, result: result }),
+        (error) => dispatch({ type: DONOR_FETCH_FAILED, error })
       );
   }
 }
 
-function shouldFetchWorksheet(state, donorId) {
-	const donor = state.donors[donorId];
+function shouldFetchDonor(state) {
+	const donor = state.donors
 
 	if (!donor ||
 		donor.readyState === DONOR_FETCH_FAILED ||
@@ -30,10 +30,10 @@ function shouldFetchWorksheet(state, donorId) {
 	return false;
 }
 
-export function fetchWorksheetIfNeeded(donorId) {
+export function fetchDonorIfNeeded() {
 	return (dispatch, getState) => {
-		if (shouldFetchWorksheet(getState(), donorId)) {
-			return dispatch(fetchWorksheet(donorId));
+		if (shouldFetchDonor(getState())) {
+			return dispatch(fetchDonors());
 		}
 	}
 }

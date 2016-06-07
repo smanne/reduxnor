@@ -9,6 +9,7 @@ const config = require('./webpack.config.js');
 
 const port = process.env.PORT || 3000;
 const server = express();
+
 global.__ENVIRONMENT__ = process.env.NODE_ENV || 'default';
 
 // Otherwise errors thrown in Promise routines will be silently swallowed.
@@ -32,7 +33,7 @@ server.use(express.static(path.resolve(__dirname, 'dist')));
 server.use("/static", express.static(__dirname + "/static"));
 
 
-if (!process.env.NODE_ENV) {
+if (!(process.env.NODE_ENV == 'production')) {
   const compiler = webpack(config);
 
   server.use(dev(compiler, {
@@ -51,7 +52,7 @@ if (!process.env.NODE_ENV) {
 
 server.get('*', require('./app').serverMiddleware);
 
-server.listen(port, 'localhost', (err) => {
+server.listen(port, '0.0.0.0', (err) => {
   if (err) {
     console.error(err);
   }
