@@ -1,13 +1,14 @@
 import {
     PLACE_CHANGED,
     ADD_MARKERS,
-    MARKER_SELECTED
+    MARKER_SELECTED,
+    LOCATION_CAPTURED
 } from '../actions/map';
 
 const initialState = {
-  defaultCenter: {lat: 13.0211773, lng: 77.6593393},
-  defaultZoom: 12,
-  center: {lat: 13.0211773, lng: 77.6593393},
+  defaultCenter: {lat: 20.8919479, lng: 73.7493284},
+  defaultZoom: 8,
+  center: {lat: 20.8919479, lng: 73.7493284},
   markers: [],
   currentPlace: {},
   currentSelectedMarker: ""
@@ -24,6 +25,10 @@ export default function map(state = initialState, action) {
             return {...state,
                   markers: state.markers.concat(action.markers)
                 }
+        case LOCATION_CAPTURED:
+            return {...state,
+              center: action.newLocation
+            }
         case MARKER_SELECTED:
             return {...state, currentSelectedMarker: action.selectedMarker
             };

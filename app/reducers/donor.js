@@ -2,13 +2,15 @@ import {
     DONOR_INVALID,
     DONOR_FETCHING,
     DONOR_FETCHED,
-    DONOR_FETCH_FAILED
+    DONOR_FETCH_FAILED,
+    DONOR_ADDED
 } from '../actions/donor';
 
 const initialState = {
   donors: [],
   readyState: "",
-  error: ""
+  error: "",
+  addedDonor: null
 }
 
 export default function donor(state = {}, action) {
@@ -23,6 +25,11 @@ export default function donor(state = {}, action) {
                     readyState: DONOR_FETCH_FAILED,
                     error: action.error
                 }
+        case DONOR_ADDED:
+            return {...state,
+              donors: state.donors.concat(action.result),
+              addedDonor: action.result
+        }
         case DONOR_FETCHED:
             return {...state,
                     readyState: DONOR_FETCHED,

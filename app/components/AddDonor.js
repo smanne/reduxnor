@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   Button, Modal, ButtonInput, Select
 } from 'react-bootstrap/lib';
@@ -6,6 +7,8 @@ import { Form, ValidatedInput } from 'react-bootstrap-validation';
 import SearchBox from './SearchBox';
 import GoogleMap from 'google-map-react';
 var FontAwesome = require('react-fontawesome');
+import * as DonorActions from '../actions/donor';
+
 
 
 export default class AddDonor extends React.Component {
@@ -41,17 +44,16 @@ export default class AddDonor extends React.Component {
   _handleValidSubmit(values) {
        // Values is an object containing all values
        // from the inputs
-    this.setState({address: this.state.selectedAddress.formatted_address,
-      loc: {
-      "type": "Point",
-      "coordinates": [
-        13.0238145,
-        77.6590534
-      ]
-    }
-    })
-    this.setState(values);
-    
+    this.props.dispatch(DonorActions.addDonor({...values, address: this.state.selectedAddress.formatted_address,
+         loc: {
+         "type": "Point",
+         "coordinates": [
+           this.state.center.lat,
+           this.state.center.lng
+         ]
+       }
+       })
+     );
    }
 
    _handleInvalidSubmit(errors, values) {
@@ -92,7 +94,7 @@ export default class AddDonor extends React.Component {
          bsStyle="primary"
          onClick={this.open.bind(this)}
        >
-         Add Donor
+       <FontAwesome name="heartbeat"/> Add Donor
        </Button>
 
        <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
@@ -100,7 +102,7 @@ export default class AddDonor extends React.Component {
            <Modal.Title>Add Donor</Modal.Title>
          </Modal.Header>
          <Modal.Body>
-          <Form
+          {this.props.donor.addedDonor?<div>Donor added  with id: {this.props.donor.addedDonor.id}</div>:<Form
             onValidSubmit={this._handleValidSubmit.bind(this)}
             onInvalidSubmit={this._handleInvalidSubmit.bind(this)}>
             <ValidatedInput
@@ -194,7 +196,7 @@ export default class AddDonor extends React.Component {
               />
               </div>
             </div>
-          </Form>
+          </Form>}
          </Modal.Body>
          <Modal.Footer>
 
@@ -204,3 +206,11 @@ export default class AddDonor extends React.Component {
    );
  }
 }
+
+function mapStateToProps(state) {
+  return {
+    donor: state.donor
+  };
+}
+
+export default connect(mapStateToProps)(AddDonor);

@@ -27,21 +27,19 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
+    this.captureLocation();
     this.props.dispatch(DonorActions.fetchDonors());
+  }
+
+  captureLocation() {
+    navigator.geolocation.getCurrentPosition(function(pos){
+      var newLoc = {lat: pos.coords.latitude, lng: pos.coords.longitude};
+      this.props.dispatch(MapActions.locationCaptured(newLoc));
+    }.bind(this));
   }
 
   onPlacesChanged(newPlace) {
     this.props.dispatch(MapActions.onPlacesChanged(newPlace[0]));
-    console.log(newPlace[0]);
-    var place = newPlace[0];
-    this.props.dispatch(MapActions.addMarkers(newPlace));
-    // if (place.geometry.viewport) {
-    //   fitBounds(place.geometry.viewport);
-    // }
-    //this.setState({center: {lat: place.geometry.location.lat(), lng: place.geometry.location.lng()})
-    //this.refs.googleMap.center = {lat: place.geometry.location.lat(), lng: place.geometry.location.lng()};
-    //this.refs.googleMap.zoom = 9;
-    //this.refs.googleMap._initMap();
   }
 
   render() {
@@ -61,7 +59,7 @@ export default class Home extends Component {
             <div className="input-group">
               <SearchBox onPlacesChanged={this.onPlacesChanged.bind(this)} />
               <span className="input-group-btn">
-                <button className="btn btn-default" type="button"><FontAwesome name="location-arrow" /></button>
+                <button className="btn btn-default" onClick={this.captureLocation.bind(this)} type="button"><FontAwesome name="location-arrow" /></button>
                 <button className="btn btn-default" type="button">Go!</button>
               </span>
             </div>
@@ -79,13 +77,13 @@ export default class Home extends Component {
                 defaultCenter={this.props.map.defaultCenter}>
                 {
                   this.props.donor.donors?this.props.donor.donors.map((donor, index) => {
-                  return <FontAwesome name="heartbeat"
-                    style={markerStyle}
-                    size="2x"
-                    key={'marker_'+index}
-                    lat={donor.loc.coordinates[0]}
-                    lng={donor.loc.coordinates[1]}
-                  />
+                    return <FontAwesome name="heartbeat"
+                      style={markerStyle}
+                      size="2x"
+                      key={'marker_'+index}
+                      lat={donor.loc.coordinates[0]}
+                      lng={donor.loc.coordinates[1]}
+                    />
               }):undefined}
               </GoogleMap>
             </div>
@@ -93,7 +91,7 @@ export default class Home extends Component {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <AddDonor defaultCenter={this.props.map.center} style={{position:'fixed', top:"40px", right:"10px"}}/>
+            <AddDonor defaultCenter={this.props.map.center} style={{position:'fixed', top:"210px", right:"10px"}}/>
           </div>
         </div>
       </div>
