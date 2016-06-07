@@ -12,3 +12,18 @@
     figure, figcaption, footer, header, hgroup,
     menu, nav, output, ruby, section, summary,
     time, mark, audio, video{font-family: 'Nunito', sans-serif;font-weight:300 !important;}
+.add-donor {
+  position:fixed;
+  z-index:100;
+  top:220px;
+  right:10px;
+}
+
+@media only screen and (max-width : 480px) {
+  .add-donor {
+    position:fixed;
+    z-index:100;
+    top:280px;
+    right:10px;
+  }
+}

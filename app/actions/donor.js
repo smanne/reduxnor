@@ -1,3 +1,5 @@
+import config from '../config';
+
 export const DONOR_INVALID = 'DONOR_INVALID';
 export const DONOR_FETCHING = 'DONOR_FETCHING';
 export const DONOR_FETCHED = 'DONOR_FETCHED';
@@ -9,7 +11,7 @@ export function fetchDonors() {
   return (dispatch) => {
     dispatch({ type: DONOR_FETCHING });
 
-    return fetch('http://localhost:3005/donors/')
+    return fetch(config.api+'/donors/')
       .then((response) => {
         return response.json();
       })
@@ -24,7 +26,7 @@ export function addDonor(donor) {
   return (dispatch) => {
     dispatch({ type: DONOR_FETCHING });
 
-    return fetch('http://localhost:3005/donors/', {
+    return fetch(config.api+'/donors/', {
 				method: 'post',
 				headers: {
 					'Accept': 'application/json'

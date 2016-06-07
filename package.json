@@ -1,17 +1,16 @@
 {
-  "name": "tabtor-app",
+  "name": "ReDuxnor",
   "version": "1.0.0",
-  "description": "react-redux-universal",
+  "description": "React Redux based Blood donor sample app",
   "main": "server.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/PrazAs/tabtor-app.git"
   },
-  "author": "Sandeep Manne <sandeep@tabtor.com>",
+  "author": "Sandeep Manne <sandeep.manne@gmail.com>",
   "license": "",
   "scripts": {
     "start": "node server",
-    "postinstall": "webpack --config ./webpack.production.config.js --progress"
   },
   "dependencies": {
     "babel-core": "^6.7.5",

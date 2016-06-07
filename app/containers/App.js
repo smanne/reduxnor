@@ -10,8 +10,8 @@ class App extends Component {
     return (
       <div>
         <Helmet
-          title='Tabtor'
-          titleTemplate='Tabtor - %s'
+          title='ReDuxnor'
+          titleTemplate='ReDuxnor - %s'
           meta={[
             {'char-set': 'utf-8'},
             {'name': 'description', 'content': 'My super dooper dope app'}

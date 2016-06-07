@@ -10,12 +10,14 @@ import SearchBox from '../components/SearchBox';
 import AddDonor from '../components/AddDonor';
 import * as MapActions from '../actions/map';
 import * as DonorActions from '../actions/donor';
+import config from '../config';
 
 
 export default class Home extends Component {
 
   constructor(props) {
     super(props);
+    console.log(config);
   }
 
   onChildClick(e) {
@@ -65,6 +67,7 @@ export default class Home extends Component {
             </div>
           </div>
         </div>
+        <AddDonor defaultCenter={this.props.map.center} className="add-donor"/>
         <div className="row">
           <div className="col-md-12" style={{height:"100%"}}>
             <div style={{height:"500px", width:"100%"}}>
@@ -87,11 +90,6 @@ export default class Home extends Component {
               }):undefined}
               </GoogleMap>
             </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12">
-            <AddDonor defaultCenter={this.props.map.center} style={{position:'fixed', top:"210px", right:"10px"}}/>
           </div>
         </div>
       </div>

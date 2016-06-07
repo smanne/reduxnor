@@ -90,6 +90,7 @@ export default class AddDonor extends React.Component {
    return (
      <div>
        <Button
+         className={this.props.className}
          style={this.props.style}
          bsStyle="primary"
          onClick={this.open.bind(this)}
