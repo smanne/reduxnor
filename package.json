@@ -5,7 +5,7 @@
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PrazAs/tabtor-app.git"
+    "url": "https://github.com/smanne/reduxnor"
   },
   "author": "Sandeep Manne <sandeep.manne@gmail.com>",
   "license": "",
