@@ -10,7 +10,8 @@
   "author": "Sandeep Manne <sandeep.manne@gmail.com>",
   "license": "",
   "scripts": {
-    "start": "node server",
+    "start": "npm run build && NODE_ENV=production node server",
+    "build": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress"
   },
   "dependencies": {
     "babel-core": "^6.7.5",
