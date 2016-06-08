@@ -7,7 +7,7 @@ import {
 
 const initialState = {
   defaultCenter: {lat: 12.9745912, lng: 77.5349369},
-  defaultZoom: 18,
+  defaultZoom: 10,
   center: {lat: 12.9745912, lng: 77.5349369},
   markers: [],
   currentPlace: {},
