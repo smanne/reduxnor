@@ -31,7 +31,7 @@ Its just 1.5days old project. Lot of things planned to add to it.
 <img src="https://www.dropbox.com/s/cbkom9d8smzuuba/Screenshot%202016-06-08%2019.53.50.png?raw=1" width="250">
 
 ### Deploying on heroku
-To deploy it on heroku, we need to set config ``` NPM_CONFIG_PRODUCTION = false. ``` So it will install webpack.
+To deploy it on heroku, we need to set config ``` NPM_CONFIG_PRODUCTION = false. ``` So it will install dev dependencies (webpack).
 
 ### Deploying to docker
 Dockerfile is already added to this project. To deploy it on docker.
