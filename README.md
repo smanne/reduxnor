@@ -20,7 +20,7 @@ API is developed using sails js and mongo (will open it soon).
 
 Its just 1.5days old project. Lot of things planned to add to it.
 
-Future plans:
+### Future plans:
 
 1. Add unit tests, selenium testing.
 2. Deploy it to continous integration ([codeship](https://codeship.com/) is my choice)
