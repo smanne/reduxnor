@@ -1,6 +1,6 @@
 <img src="https://www.dropbox.com/s/w0kjalp73brkhqq/Screenshot%202016-06-08%2018.17.41.png?raw=1" width="250">
 
-React Redux based blood donor application (Demo: http://reduxnor.herokuapp.com/)
+React Redux based blood donor demo application. (Demo: http://reduxnor.herokuapp.com/)
 
 A demo application on react js, with redux. I have used following technologies
 
