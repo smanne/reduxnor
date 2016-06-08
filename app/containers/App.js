@@ -22,7 +22,7 @@ class App extends Component {
           <FontAwesome name="heartbeat"
             style={{color:"red", textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)', fontSize: "5em"}}
           /> <div style={{display: "inline", fontSize: "5em"}}>ReDuxnor</div>
-        <div>React Redux based Blood donor sample app</div>
+        <div>React Redux based Blood donor sample app (<a href="https://github.com/smanne/reduxnor">source</a>)</div>
         </div>
       </div>
         {this.props.children}
