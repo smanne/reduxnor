@@ -3,7 +3,7 @@
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
     del, dfn, em, img, ins, kbd, q, s, samp,
-    small, strike, strong, sub, sup, tt, var,
+    small, strike, sub, sup, tt, var,
     b, u, center,
     dl, dt, dd, ol, ul, li,
     fieldset, form, label, legend,
@@ -17,6 +17,11 @@
   z-index:100;
   top:220px;
   right:10px;
+}
+
+strong {
+  font-family: 'Nunito', sans-serif;
+  font-size: 700 !important;
 }
 
 @media only screen and (max-width : 480px) {

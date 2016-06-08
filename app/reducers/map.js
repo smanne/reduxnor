@@ -6,9 +6,9 @@ import {
 } from '../actions/map';
 
 const initialState = {
-  defaultCenter: {lat: 20.8919479, lng: 73.7493284},
-  defaultZoom: 8,
-  center: {lat: 20.8919479, lng: 73.7493284},
+  defaultCenter: {lat: 12.9745912, lng: 77.5349369},
+  defaultZoom: 18,
+  center: {lat: 12.9745912, lng: 77.5349369},
   markers: [],
   currentPlace: {},
   currentSelectedMarker: ""

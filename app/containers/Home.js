@@ -7,6 +7,7 @@ import { fitBounds } from 'google-map-react/utils';
 var FontAwesome = require('react-fontawesome');
 import { default as _ } from "lodash";
 import SearchBox from '../components/SearchBox';
+import Marker from '../components/Marker';
 import AddDonor from '../components/AddDonor';
 import * as MapActions from '../actions/map';
 import * as DonorActions from '../actions/donor';
@@ -17,15 +18,6 @@ export default class Home extends Component {
 
   constructor(props) {
     super(props);
-    console.log(config);
-  }
-
-  onChildClick(e) {
-    console.log(e);
-  }
-
-  onChildMouseEnter(e) {
-    console.log(e);
   }
 
   componentDidMount() {
@@ -45,24 +37,15 @@ export default class Home extends Component {
   }
 
   render() {
-    const MARKER_SIZE = 20;
-    const markerStyle = {
-      color:'red',
-      position: 'absolute',
-      width: MARKER_SIZE,
-      height: MARKER_SIZE,
-      left: -MARKER_SIZE / 2,
-      top: -MARKER_SIZE / 2
-    }
     return (
       <div className="row">
         <div className="row">
           <div className="col-md-12">
             <div className="input-group">
-              <SearchBox onPlacesChanged={this.onPlacesChanged.bind(this)} />
+              <SearchBox style={{height: "50px"}} onPlacesChanged={this.onPlacesChanged.bind(this)} />
               <span className="input-group-btn">
-                <button className="btn btn-default" onClick={this.captureLocation.bind(this)} type="button"><FontAwesome name="location-arrow" /></button>
-                <button className="btn btn-default" type="button">Go!</button>
+                <button style={{height: "50px"}} className="btn btn-default" onClick={this.captureLocation.bind(this)} type="button"><FontAwesome name="location-arrow" /></button>
+                <button style={{height: "50px"}} className="btn btn-default" type="button">Go!</button>
               </span>
             </div>
           </div>
@@ -80,10 +63,9 @@ export default class Home extends Component {
                 defaultCenter={this.props.map.defaultCenter}>
                 {
                   this.props.donor.donors?this.props.donor.donors.map((donor, index) => {
-                    return <FontAwesome name="heartbeat"
-                      style={markerStyle}
-                      size="2x"
+                    return <Marker name="heartbeat"
                       key={'marker_'+index}
+                      donor={donor}
                       lat={donor.loc.coordinates[0]}
                       lng={donor.loc.coordinates[1]}
                     />

@@ -1,4 +1,4 @@
 export default {
   greeting: 'Hello, this app is running with default settings',
-  api: "http://localhost:3005"
+  api: "https://smanne-sails-demo.herokuapp.com"
 };
