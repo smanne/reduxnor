@@ -29,4 +29,12 @@ Future plans:
 <img src="https://www.dropbox.com/s/x8pr52afvw91tpo/Screenshot%202016-06-08%2018.11.53.png?raw=1" width="250">
 <img src="https://www.dropbox.com/s/o0og6wxjly5xir2/Screenshot%202016-06-08%2018.16.37.png?raw=1" width="250">
 
+### Deploying on heroku
+To deploy it on heroku, we need to set config NPM_CONFIG_PRODUCTION = false. So it will install webpack.
+
+### Deploying to docker
+Dockerfile is already added to this project. To deploy it on docker.
+docker build -t reduxnor .
+docker run -d -p $PORT:$PORT reduxnor
+
 
