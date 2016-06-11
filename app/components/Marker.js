@@ -47,7 +47,7 @@ export default class Marker extends Component {
 
     return (
       <OverlayTrigger trigger="click" rootClose placement="top" overlay={<Popover title={this.props.donor.name}><div><strong>Bloodgroup:</strong> {this.props.donor.bloodGroup}</div>{this.showContactInfoLink(this.props.donor)}<div><strong>Address:</strong> {this.props.donor.address}</div></Popover>}>
-        <FontAwesome name="heartbeat"
+        <FontAwesome className={this.props.key} name="heartbeat"
           style={this.props.$hover?markerStyleHovered:markerStyle}
         />
       </OverlayTrigger>

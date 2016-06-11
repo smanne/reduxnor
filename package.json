@@ -11,6 +11,7 @@
   "license": "",
   "scripts": {
     "start": "npm run build && NODE_ENV=production node server",
+    "test": "mocha --timeout 150000",
     "build": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress"
   },
   "dependencies": {
@@ -45,7 +46,10 @@
     "css-loader": "^0.23.1",
     "del": "^2.2.0",
     "file-loader": "^0.8.5",
+    "jsdom-no-contextify": "^3.1.0",
+    "mocha": "^2.5.3",
     "react-transform-hmr": "^1.0.4",
+    "selenium-webdriver": "^2.53.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.1.0-beta.9",

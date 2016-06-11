@@ -42,7 +42,7 @@ export default class Home extends Component {
         <div className="row">
           <div className="col-md-12">
             <div className="input-group">
-              <SearchBox style={{height: "50px"}} onPlacesChanged={this.onPlacesChanged.bind(this)} />
+              <SearchBox id="home-search-box" style={{height: "50px"}} onPlacesChanged={this.onPlacesChanged.bind(this)} />
               <span className="input-group-btn">
                 <button style={{height: "50px"}} className="btn btn-default" onClick={this.captureLocation.bind(this)} type="button"><FontAwesome name="location-arrow" /></button>
                 <button style={{height: "50px"}} className="btn btn-default" type="button">Go!</button>

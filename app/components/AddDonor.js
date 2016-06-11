@@ -90,6 +90,7 @@ export default class AddDonor extends React.Component {
    return (
      <div>
        <Button
+         id="add-donor-button"
          className={this.props.className}
          style={this.props.style}
          bsStyle="primary"
@@ -103,7 +104,7 @@ export default class AddDonor extends React.Component {
            <Modal.Title>Add Donor</Modal.Title>
          </Modal.Header>
          <Modal.Body>
-          {this.props.donor.addedDonor?<div>Donor added  with id: {this.props.donor.addedDonor.id}</div>:<Form
+          {this.props.donor.addedDonor?<div id="donor-added">Donor added  with id: <span id="donor-id">{this.props.donor.addedDonor.id}</span></div>:<Form
             onValidSubmit={this._handleValidSubmit.bind(this)}
             onInvalidSubmit={this._handleInvalidSubmit.bind(this)}>
             <ValidatedInput
@@ -191,6 +192,7 @@ export default class AddDonor extends React.Component {
             <div className="row">
               <div className="col-md-12" style={{textAlign:"right", marginTop:"20px"}} >
               <ButtonInput
+                  id="add-donor-submit"
                   type='submit'
                   bsStyle='primary'
                   value='Register'

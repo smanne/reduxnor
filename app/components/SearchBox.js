@@ -7,7 +7,7 @@ export default class SearchBox extends React.Component {
   }
 
   render() {
-    return <input className="form-control" style={this.props.style} placeholder="Search for place to find donors" ref="input" {...this.props} type="text"/>;
+    return <input id={this.props.id} className="form-control" style={this.props.style} placeholder="Search for place to find donors" ref="input" {...this.props} type="text"/>;
   }
 
   onPlacesChanged = () => {
